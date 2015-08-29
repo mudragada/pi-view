@@ -1,0 +1,19 @@
+{{#if errors.length}}
+  {{#each errors as |errorsGroup|}}
+    <div class="msgs error">
+      {{#if errorsGroup.title}}
+        <h6 class="msg-title qa-error-msg-title">
+          {{errorsGroup.title}}
+        </h6>
+      {{/if}}
+
+      <div class="msg-messages well qa-error-msg-messages">
+        <ul class="msg-list">
+          {{#each errorsGroup.messages as |message|}}
+            {{form-error error=message.message type="error" tagName="li" class=message.qaClass}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  {{/each}}
+{{/if}}
